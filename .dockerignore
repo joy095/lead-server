@@ -1,0 +1,7 @@
+# Exclude local node_modules, env files, git, Docker files, etc.
+node_modules
+.env
+*.env
+.git
+.dockerignore
+Dockerfile*
