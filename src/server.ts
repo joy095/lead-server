@@ -15,8 +15,24 @@ const app = express();
 // Logging middleware
 app.use(requestLogger);
 
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://lead-client-two.vercel.app",
+];
+
 // Middleware with better error handling for JSON parsing
-app.use(cors());
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) === -1) {
+        return callback(new Error(`CORS blocked for origin ${origin}`), false);
+      }
+      return callback(null, true);
+    },
+    credentials: true,
+  })
+);
 app.use(
   express.json({
     limit: "1mb",
