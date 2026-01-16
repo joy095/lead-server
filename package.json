@@ -2,10 +2,10 @@
   "name": "lead-backend",
   "version": "1.0.0",
   "description": "Lead Management Backend API",
-  "main": "dist/server.js",
+  "main": "./dist/server.js",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/server.js",
+    "start": "node ./dist/server.js",
     "seed": "node ./seed-leads.js",
     "seed-model": "node ./seed-with-model.js",
     "dev": "nodemon --exec ts-node src/server.ts"
